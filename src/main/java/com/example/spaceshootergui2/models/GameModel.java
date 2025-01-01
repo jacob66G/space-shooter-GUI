@@ -36,7 +36,7 @@ public class GameModel {
     public GameModel() {}
 
     public void initGameModel() {
-        this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT - 100, 5, 20, "player.png");
+        this.player = new Player(GAME_WIDTH / 2, GAME_HEIGHT - 100, 10, 20, "player.png");
         this.aliens = new ArrayList<>();
         this.bullets = new ArrayList<>();
         this.score = 0;

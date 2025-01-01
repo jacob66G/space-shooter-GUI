@@ -139,7 +139,7 @@ public class GameController {
     public void handleGameButtons() {
 
         view.getContinueButton().setOnAction(e -> {
-            if (model.isGameOver()) {
+            if (model.isGameOver() || model.isWin()) {
                 historyView.addGameHistory(model.getGameDate(), model.getScore(), model.isWin());
                 model.initGameModel();
                 view.removeButtons();

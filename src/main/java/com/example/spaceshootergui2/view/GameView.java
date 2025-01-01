@@ -57,9 +57,6 @@ public class GameView extends AbstactView {
         this.scene = new Scene(root, 800, 600);
         createButtons();
         stage.setScene(scene);
-
-        System.out.println(canvas.getWidth());
-        System.out.println(canvas.getHeight());
     }
 
 
@@ -72,7 +69,7 @@ public class GameView extends AbstactView {
             displayMessages(model, gc);
         }
 
-        if((!model.isDisplayNextLevel() && !model.isDisplayNextAttack()) && !model.isGameOver() && !model.isGameOver()) {
+        if((!model.isDisplayNextLevel() && !model.isDisplayNextAttack()) && !model.isGameOver() && !model.isWin()) {
             animationStart = false;
         }
 
@@ -225,8 +222,9 @@ public class GameView extends AbstactView {
                     if (scale >= maxScale) {
                         scale = maxScale;
                         finishedScaling = true;
-
-                        if(model.isGameOver()){
+                        System.out.println(scale + "<" + maxScale);
+                        if(model.isGameOver() || model.isWin()){
+                            System.out.println("elo");
                             displayGameButtons();
                         }
                     }
