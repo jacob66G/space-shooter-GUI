@@ -28,7 +28,6 @@ public class GameModel {
     private boolean isPausedAttack;
     private boolean displayNextLevel;
     private boolean displayNextAttack;
-    private boolean play = false;
     private boolean endGameSound = false;
     private LocalDateTime gameDate;
     private long lastPauseTime = 0;
@@ -48,7 +47,6 @@ public class GameModel {
         this.isPausedAttack = false;
         this.displayNextLevel = false;
         this.displayNextAttack = false;
-        this.play = true;
         this.pasue = false;
         this.endGameSound = true;
         this.lastPauseTime = 0;
@@ -138,9 +136,7 @@ public class GameModel {
                     break;
                 }
             }
-
         }
-
         if (!isWin()) {
             updateAttack();
         }
@@ -148,6 +144,7 @@ public class GameModel {
 
     public void removeAlien(Alien alien) {
         score += alien.getMaxHealth() * 10;
+        SoundPlayer.playSound("/audio/explosion.wav");
         aliens.remove(alien);
         currentAttack.getAliens().remove(alien);
     }
@@ -269,9 +266,6 @@ public class GameModel {
     }
 
     public boolean isGameOver() {
-        if(player.isGameOver()) {
-            play = false;
-        }
         return player.isGameOver();
     }
 

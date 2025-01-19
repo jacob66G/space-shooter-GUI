@@ -222,9 +222,8 @@ public class GameView extends AbstactView {
                     if (scale >= maxScale) {
                         scale = maxScale;
                         finishedScaling = true;
-                        System.out.println(scale + "<" + maxScale);
+
                         if(model.isGameOver() || model.isWin()){
-                            System.out.println("elo");
                             displayGameButtons();
                         }
                     }

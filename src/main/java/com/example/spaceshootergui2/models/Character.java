@@ -34,7 +34,6 @@ public abstract class Character {
 
         if(health<1){
             destroy = true;
-            SoundPlayer.playSound("/audio/explosion.wav");
         }
     }
 
